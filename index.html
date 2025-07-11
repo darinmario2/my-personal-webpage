@@ -112,12 +112,31 @@
       margin: 3rem 0 2rem 0;
     }
     .section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #aeeaff;
-      border-bottom: 1.5px solid #aeeaff;
-      display: inline-block;
-      padding-bottom: 0.2em;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: transparent;
+  background: linear-gradient(90deg, #aeeaff, #fff 40%, #aeeaff 60%, #80e6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  border-bottom: 2px solid #aeeaff;
+  display: inline-block;
+  padding-bottom: 0.2em;
+  text-shadow:
+    0 0 10px #aeeaff90,
+    0 0 25px #80e6ff66,
+    0 2px 16px #aeeaff55;
+  letter-spacing: 2px;
+  transition: text-shadow 0.3s;
+  /* Optional hover effect: brighter glow */
+}
+.section h2:hover {
+  text-shadow:
+    0 0 18px #fff,
+    0 0 36px #aeeaffcc,
+    0 2px 18px #80e6ff;
+}
     }
     .skills-grid {
       display: grid;
