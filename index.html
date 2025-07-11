@@ -11,10 +11,10 @@
             --primary: #2d3436;
             --secondary: #a50303;
             --accent: #ffffff;
-            --bg: #0d0c0e;
+            --bg: #0a143d; /* dark navy blue */
             --text: #e2e8f0;
         }
-                                                                                                             
+
         * {
             margin: 0;
             padding: 0;
@@ -26,6 +26,46 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Glitter effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: transparent;
+            /* Glitter dots */
+            box-shadow:
+                10vw 10vh 1px 1px #fff,
+                20vw 80vh 1px 1px #a8c3ff,
+                30vw 50vh 1px 1px #fff,
+                40vw 90vh 1px 1px #fff,
+                50vw 15vh 1px 1px #c6e2ff,
+                60vw 60vh 1px 1px #fff,
+                70vw 20vh 1px 1px #ddeeff,
+                80vw 70vh 1px 1px #fff,
+                90vw 30vh 1px 1px #bcdfff,
+                25vw 25vh 2px 2px #eef6ff,
+                75vw 10vh 1px 1px #fff,
+                60vw 40vh 2px 2px #a0c8ff,
+                15vw 85vh 1px 1px #d6eaff,
+                85vw 50vh 1px 1px #ffffff;
+            animation: glitter 2s infinite alternate;
+        }
+
+        @keyframes glitter {
+            0% {
+                opacity: 0.7;
+                filter: blur(0.5px);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(1.5px);
+            }
         }
 
         .container {
@@ -33,6 +73,7 @@
             margin: 0 auto;
             padding: 2rem;
             position: relative;
+            z-index: 1; /* Ensure content is above glitter */
         }
 
         header {
@@ -184,7 +225,7 @@
 
         <section class="section">
             <h2>About Me</h2>
-            <p>I am a Computer Science Engineering student with a passion for coding and problem-solving. Proficient in C, C++, and Python, I enjoy developing applications and exploring new technologies. Eager to learn and innovate in software development</p>
+            <p>I am a Computer Science Engineering student with a passion for coding and problem-solving. Proficient in C, C++, and Python, I enjoy developing applications and exploring new technologies.</p>
         </section>
 
         <section class="section">
@@ -192,7 +233,7 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <h3><i class="fas fa-code"></i> Programming</h3>
-                    <p>Python, C,Java, C++</p>
+                    <p>Python, C, Java, C++</p>
                 </div>
                 <div class="skill-card">
                     <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
@@ -210,29 +251,9 @@
             <div class="projects">
                 <div class="project-card">
                     <h3>Baby Monitor</h3>
-                    <p> In this baby monitor I have used camera, wet sensor, temperature sensor, humidity and sound sensor . It will send a notification to the parents' mobile , so that they can take care of the baby while they are away. 
-                    </p>
+                    <p>In this baby monitor I have used camera, wet sensor, temperature sensor, humidity and sound sensor. It will send a notification to the parents' mobile, so that they can take action quickly.</p>
                 </div>
                 <div class="project-card">
                     <h3>CALMA</h3>
-                    <p>An immersive fantasy RPG that teaches coding through storytelling
-                        where programming meets adventure in the magical kingdom of Arrayia
-                        </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Certifications</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>C,C++,CORE PYTHON</h3>
-                    <p>Completed certification courses in C, C++, and Core Python, gaining expertise in programming fundamentals, object-oriented concepts, and scripting. Proficient in problem-solving and application development</p>
-                    <a href="https://www.mediafire.com/file/geeechksmb5yxv5/certification.pdf.pdf/file" download>Download Certificate</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-</body>
-</html>                         
+                    <p>An immersive fantasy RPG that teaches coding through storytelling where programming meets adventure in the magical*
+
