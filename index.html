@@ -10,149 +10,104 @@
         :root {
             --primary: #2d3436;
             --secondary: #a50303;
-            --accent: #ffffff;
-            --bg: #10172b; /* very dark blue */
+            --accent: #aeeaff; /* light blue for contrast */
+            --bg: #000; /* black background */
             --text: #e2e8f0;
+            --name-gradient: linear-gradient(45deg, #aeeaff, #eaf6ff);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
         body {
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
             position: relative;
-            overflow-x: hidden;
             min-height: 100vh;
+            overflow-x: hidden;
         }
-
-        /* Starfield Effect */
-        .stars, .stars2, .stars3 {
+        /* Starfield background */
+        .star-bg {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100vw;
             height: 100vh;
-            pointer-events: none;
+            left: 0; top: 0;
             z-index: 0;
-        }
-        .stars {
-            background: transparent url("data:image/svg+xml;utf8,<svg width='100vw' height='100vh' xmlns='http://www.w3.org/2000/svg'><circle cx='10' cy='10' r='1.2' fill='white' opacity='0.75'/><circle cx='200' cy='300' r='1.5' fill='white' opacity='0.9'/><circle cx='400' cy='100' r='1' fill='white' opacity='0.5'/><circle cx='700' cy='600' r='1.3' fill='white' opacity='0.7'/><circle cx='1200' cy='200' r='1.1' fill='white' opacity='0.7'/></svg>");
-            animation: moveStars 100s linear infinite;
-        }
-        .stars2 {
-            background: transparent url("data:image/svg+xml;utf8,<svg width='100vw' height='100vh' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='650' r='1' fill='white' opacity='0.4'/><circle cx='600' cy='90' r='1.2' fill='white' opacity='0.6'/><circle cx='900' cy='300' r='1.1' fill='white' opacity='0.5'/><circle cx='1100' cy='500' r='1.3' fill='white' opacity='0.8'/></svg>");
-            animation: moveStars 160s linear infinite;
-        }
-        .stars3 {
-            background: transparent url("data:image/svg+xml;utf8,<svg width='100vw' height='100vh' xmlns='http://www.w3.org/2000/svg'><circle cx='200' cy='200' r='1.3' fill='white' opacity='0.8'/><circle cx='800' cy='200' r='1.2' fill='white' opacity='0.6'/><circle cx='400' cy='700' r='1.4' fill='white' opacity='0.7'/></svg>");
-            animation: moveStars 220s linear infinite;
-        }
-        @keyframes moveStars {
-            from { background-position: 0 0; }
-            to { background-position: -100vw 100vh; }
-        }
-        /* Twinkle effect */
-        .star-glow {
-            position: fixed;
             pointer-events: none;
-            z-index: 1;
-            width: 100vw;
-            height: 100vh;
-            top: 0; left: 0;
         }
-        .star-glow span {
+        .star {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
+            width: 2.5px;
+            height: 2.5px;
+            background: radial-gradient(circle, #fff 80%, #aeeaff 100%);
             border-radius: 50%;
-            opacity: 0.7;
-            box-shadow: 0 0 8px 3px #fff, 0 0 12px 6px #a6bfff55;
-            animation: twinkle 2.5s infinite alternate;
+            opacity: 0.82;
+            box-shadow: 0 0 6px 2px #e0eaff, 0 0 18px 6px #aeeaff44;
+            animation: star-twinkle 2.8s infinite alternate;
         }
-        .star-glow span:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
-        .star-glow span:nth-child(2) { top: 20%; left: 25%; animation-delay: .9s; }
-        .star-glow span:nth-child(3) { top: 60%; left: 70%; animation-delay: .4s; }
-        .star-glow span:nth-child(4) { top: 80%; left: 30%; animation-delay: 1.2s; }
-        .star-glow span:nth-child(5) { top: 40%; left: 80%; animation-delay: .7s; }
-        .star-glow span:nth-child(6) { top: 75%; left: 55%; animation-delay: 1.6s; }
-        .star-glow span:nth-child(7) { top: 10%; left: 60%; animation-delay: 1.8s; }
-        .star-glow span:nth-child(8) { top: 35%; left: 50%; animation-delay: .5s; }
-        .star-glow span:nth-child(9) { top: 67%; left: 15%; animation-delay: 2s; }
-        .star-glow span:nth-child(10){ top: 55%; left: 85%; animation-delay: 1.1s; }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.8; box-shadow: 0 0 8px 3px #fff, 0 0 12px 6px #a6bfff55;}
-            50% { opacity: 0.2; box-shadow: 0 0 3px 1px #fff, 0 0 6px 3px #a6bfff33;}
+        @keyframes star-twinkle {
+          0%   { opacity: 0.8; box-shadow: 0 0 6px 2px #e0eaff, 0 0 18px 6px #aeeaff44; }
+          25%  { opacity: 0.4; box-shadow: 0 0 2px 1px #e0eaff, 0 0 8px 2px #aeeaff22; }
+          50%  { opacity: 1;   box-shadow: 0 0 9px 5px #fff, 0 0 30px 12px #aeeaffbb; }
+          75%  { opacity: 0.6; box-shadow: 0 0 3px 1px #e0eaff, 0 0 12px 4px #aeeaff66; }
+          100% { opacity: 0.8; box-shadow: 0 0 6px 2px #e0eaff, 0 0 18px 6px #aeeaff44; }
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
             position: relative;
-            z-index: 2; /* above stars */
+            z-index: 2; /* Content above stars */
         }
-
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 2rem 0;
         }
-
         .profile {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-
         .profile img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            border: 3px solid var(--accent);
+            border: 3px solid var(--accent); /* light blue border */
             transition: transform 0.3s ease;
         }
-
         .profile img:hover {
             transform: scale(1.1);
         }
-
         .name {
             font-size: 1.5rem;
             font-weight: 600;
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            background: var(--name-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
         .section {
             margin: 4rem 0;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 0.6s ease forwards;
         }
-
         @keyframes fadeIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         .section h2 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
             position: relative;
         }
-
         .section h2::after {
             content: '';
             position: absolute;
@@ -162,13 +117,11 @@
             height: 3px;
             background: var(--accent);
         }
-
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-
         .skill-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -177,17 +130,14 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-
         .skill-card:hover {
             transform: translateY(-5px);
         }
-
         .projects {
             display: grid;  
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-
         .project-card {
             background: rgba(255, 255, 255, 0.1);   
             position: relative;
@@ -196,109 +146,11 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
-
         .contact-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .contact-links a {
-            color: var(--secondary);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-links a:hover {
-            background: var(--secondary);
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Star layers for starfield effect -->
-    <div class="stars"></div>
-    <div class="stars2"></div>
-    <div class="stars3"></div>
-    <!-- Animated glowing stars -->
-    <div class="star-glow">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <div class="container">
-        <header>
-            <div class="profile">
-                <img alt="Darin Mario P" src="cr7.jpg">
-                <div class="name">Darin Mario P</div>
-            </div>
-            <nav class="contact-links">
-                <a href="mailto:darinmario.27csa@licet.ac.in"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/darin-mario-823538292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/darinmario2"><i class="fab fa-github"></i></a>
-            </nav>
-        </header>
-        <section class="section">
-            <h2>About Me</h2>
-            <p>I am a Computer Science Engineering student with a passion for coding and problem-solving. Proficient in C, C++, and Python, I enjoy developing applications and exploring new technologies.</p>
-        </section>
-        <section class="section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <p>Python, C, Java, C++</p>
-                </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
-                    <p>HTML, CSS</p>
-                </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <p>Teamwork, Communication, Problem-solving</p>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Baby Monitor</h3>
-                    <p>In this baby monitor I have used camera, wet sensor, temperature sensor, humidity and sound sensor. It will send a notification to the parents' mobile, so that they can take action quickly.</p>
-                </div>
-                <div class="project-card">
-                    <h3>CALMA</h3>
-                    <p>An immersive fantasy RPG that teaches coding through storytelling where programming meets adventure in the magical kingdom of Arrayia.</p>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Certifications</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>C, C++, CORE PYTHON</h3>
-                    <p>Completed certification courses in C, C++, and Core Python, gaining expertise in programming fundamentals, object-oriented concepts, and scripting. Proficient in problem-solving and coding best practices.</p>
-                    <a href="https://www.mediafire.com/file/geeechksmb5yxv5/certification.pdf.pdf/file" download>Download Certificate</a>
-                </div>
-            </div>
-        </section>
-    </div>
-</body>
-</html>
+            gap: 1rem*
+
